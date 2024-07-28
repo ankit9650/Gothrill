@@ -2,7 +2,7 @@ import React from "react";
 
 function Header() {
   return (
-    <div className="relative w-auto bg-gradient-to-r from-slate-700 to-blue-900  my-2 mx-3 ">
+    <div className="relative w-auto bg-black shadow-2xl shadow-black ">
       <div className="mx-auto max-w-7xl lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8">
         <div className="flex flex-col justify-center px-4 py-12 md:py-16 lg:col-span-7 lg:gap-x-6 lg:px-6 lg:py-24 xl:col-span-6">
           <svg
@@ -13,11 +13,11 @@ function Header() {
             xmlns="http://www.w3.org/2000/svg"
           ></svg>
 
-          <h1 className="mt-8 text-4xl font-extrabold  text-black md:text-4xl lg:text-4xl animate-slidein ... font-vlg ">
+          <h1 className="mt-8 text-4xl font-extrabold  text-white md:text-4xl lg:text-4xl animate-slidein ... font-vlg ">
             Go thrill
           </h1>
 
-          <h1 className="mt-8 text-xl font-bold tracking-tight text-black md:text-xl lg:text-xl animate-slidein ...">
+          <h1 className="mt-8 text-xl font-bold tracking-tight text-white md:text-xl lg:text-xl animate-slidein ...">
             "Adventure is not just a destination, but the journey itself.
             Explore the world with Gothrill and discover the thrill of every
             path you take."
@@ -36,9 +36,10 @@ function Header() {
           </div>
         </div>
         <div className="relative lg:col-span-5 lg:-mr-8 xl:col-span-6">
+          
           <img
-            className="aspect-[3/2] object-cover lg:aspect-[4/3] lg:h-[700px] xl:aspect-[16/9] py-1 shadow-2xl"
-            src="https://plus.unsplash.com/premium_photo-1678481760861-000b6f8904df?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            className="aspect-[3/2] object-cover lg:aspect-[4/3] lg:h-[700px] xl:aspect-[16/9] py-1 shadow-2xl opacity-95	"
+            src="https://images.pexels.com/photos/2108845/pexels-photo-2108845.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
             alt=""
             
           />
