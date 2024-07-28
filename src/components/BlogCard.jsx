@@ -1,8 +1,11 @@
 import React from "react";
 
 function BlogCard() {
+      
   return (
+    
     <>
+    
       <div className="space-y-8">
         <div className="grid gap-6">
           <div>
