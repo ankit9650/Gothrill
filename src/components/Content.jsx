@@ -1,84 +1,184 @@
-import React from "react";
+import React, { useState } from "react";
 import BlogCard from "./BlogCard";
- const blogData = [
+
+const initialBlogData = [
   {
     title: "Exploring the Majesty of the Himalayas: A Journey to Leh-Ladakh",
     author: "Rohit",
     date: "April 15, 2023",
-    excerpt: "Nestled in the northernmost region of India, Leh-Ladakh is a paradise for mountain lovers. The stark, rugged beauty of the Himalayas surrounds you as you traverse through winding roads and high mountain passes. Leh, the capital, is an enchanting town filled with Buddhist monasteries, stupas, and vibrant local markets. ",
+    excerpt: "Nestled in the northernmost region of India, Leh-Ladakh is a paradise for mountain lovers...",
     imageUrl: "https://images.pexels.com/photos/3392154/pexels-photo-3392154.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
   },
   {
     title: "The Mystical Charm of Himachal Pradesh: A Sojourn in Manali",
     author: "Harsh",
     date: "May 1, 2023",
-    excerpt: "Manali, a high-altitude Himalayan resort town in Himachal Pradesh, is a popular backpacking and honeymoon destination. Surrounded by towering peaks and lush green valleys, Manali offers a mix of tranquility and adventure. The Solang Valley is perfect for adventure sports like paragliding and skiing, while the Rohtang Pass provides stunning panoramic views and snow activities. ",
+    excerpt: "Manali, a high-altitude Himalayan resort town in Himachal Pradesh, is a popular backpacking and honeymoon destination...",
     imageUrl: "https://images.unsplash.com/photo-1590265788376-5d99eb11976e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
     title: "Serenity and Spirituality in Uttarakhand: Rishikesh and Mussoorie",
-    author: "Ankit prabhaker",
+    author: "Ankit Prabhaker",
     date: "June 1, 2023",
-    excerpt: "Uttarakhand, known as the 'Land of the Gods,' boasts spectacular mountain scenery and serene environments. Rishikesh, the Yoga Capital of the World, is located at the foothills of the Himalayas along the banks of the Ganges River. This spiritual town offers yoga and meditation retreats, as well as thrilling white-water rafting. ",
+    excerpt: "Uttarakhand, known as the 'Land of the Gods,' boasts spectacular mountain scenery and serene environments...",
     imageUrl: "https://images.pexels.com/photos/20035462/pexels-photo-20035462/free-photo-of-elderly-woman-meditating-in-front-of-a-statue-of-parvati-on-the-ganges.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
   },
   {
     title: "The Unexplored Beauty of the Northeast: Tawang, Arunachal Pradesh",
     author: "Emily Davis",
     date: "July 15, 2023",
-    excerpt: "Tawang, located in the northeastern state of Arunachal Pradesh, is a hidden gem waiting to be discovered. Perched at an elevation of 10,000 feet, Tawang is known for its stunning landscapes, Buddhist monasteries, and vibrant culture. The Tawang Monastery, the largest in India, is a spiritual haven and offers breathtaking views of the valley below.",
+    excerpt: "Tawang, located in the northeastern state of Arunachal Pradesh, is a hidden gem waiting to be discovered...",
     imageUrl: "https://images.unsplash.com/photo-1626761627604-f27d98885f4b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   }
 ];
 
 function Content() {
-          
+  const [blogs, setBlogs] = useState(initialBlogData);
+  const [expandedBlogs, setExpandedBlogs] = useState({});
+  const [newBlog, setNewBlog] = useState({
+    title: "",
+    author: "",
+    date: "",
+    excerpt: "",
+    imageUrl: ""
+  });
+
+  const toggleExpand = (index) => {
+    setExpandedBlogs((prevState) => ({
+      ...prevState,
+      [index]: !prevState[index],
+    }));
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setNewBlog((prevState) => ({ ...prevState, [name]: value }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setBlogs((prevState) => [...prevState, newBlog]);
+    setNewBlog({ title: "", author: "", date: "", excerpt: "", imageUrl: "" });
+  };
+
   return (
-    <>
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-[3fr_1fr] gap-8 py-12 px-6 md:px-8 lg:px-10">
-        <div className="space-y-8">
-          <div className="grid gap-6">
-            {blogData.map((blog, index) => (
-              <a key={index} className="group" aria-label="Blog post">
-                <div className="aspect-w-4 aspect-h-3 overflow-hidden rounded-lg shadow-sm shadow-black">
-                  <img
-                    src={blog.imageUrl}
-                    alt="Blog post image"
-                    className="object-cover transition-all group-hover:scale-105 "
-                  />
-                </div>
-                <div className="mt-4 space-y-2">
-                  <h2 className="text-2xl font-bold transition-colors group-hover:text-primary">
-                    {blog.title}
-                  </h2>
-                  <div className="flex items-center gap-2 text-muted-foreground">
-                    <div className="flex items-center gap-1 font-bold underline">
-                      <span>{blog.author}:</span>
-                    </div>
-
-                    <div className="flex items-center gap-1">
-                      <span>{blog.date}</span>
-                    </div>
+    <div className="container mx-auto grid grid-cols-1 md:grid-cols-[3fr_1fr] gap-8 py-12 px-6 md:px-8 lg:px-10">
+      <div className="space-y-8">
+        <div className="grid gap-6">
+          {blogs.map((blog, index) => (
+            <div key={index} className="group" aria-label="Blog post">
+              <div className="aspect-w-4 aspect-h-3 overflow-hidden rounded-lg shadow-sm shadow-black">
+                <img
+                  src={blog.imageUrl}
+                  alt="Blog post image"
+                  className="object-cover transition-all group-hover:scale-105"
+                />
+              </div>
+              <div className="mt-4 space-y-2">
+                <h2 className="text-2xl font-bold transition-colors group-hover:text-primary">
+                  {blog.title}
+                </h2>
+                <div className="flex items-center gap-2 text-muted-foreground">
+                  <div className="flex items-center gap-1 font-bold underline">
+                    <span>{blog.author}:</span>
                   </div>
-                  <p className="line-clamp-3 text-muted-foreground">
-                    {blog.excerpt}
-                  </p>
+                  <div className="flex items-center gap-1">
+                    <span>{blog.date}</span>
+                  </div>
                 </div>
-              </a>
-            ))}
-          </div>
+                <p className={`text-muted-foreground ${expandedBlogs[index] ? '' : 'line-clamp-3'}`}>
+                  {blog.excerpt}
+                </p>
+                <button
+                  onClick={() => toggleExpand(index)}
+                  className="text-primary hover:underline text-white bg-gray-800 hover:bg-gray-900 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700  dark:border-gray-700"
+                >
+                  {expandedBlogs[index] ? 'Read Less' : 'Read More'}
+                </button>
+              </div>
+            </div>
+          ))}
         </div>
-        <div>
-          <div className="grid gap-6">
-            <BlogCard blogData={blogData} />
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <label className="block text-sm font-medium text-gray-700">
+              Title
+            </label>
+            <input
+              type="text"
+              name="title"
+              value={newBlog.title}
+              onChange={handleInputChange}
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+              required
+            />
           </div>
-        </div>
-        {/* side  */}
-
-   
+          <div>
+            <label className="block text-sm font-medium text-gray-700">
+              Author
+            </label>
+            <input
+              type="text"
+              name="author"
+              value={newBlog.author}
+              onChange={handleInputChange}
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+              required
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700">
+              Date
+            </label>
+            <input
+              type="date"
+              name="date"
+              value={newBlog.date}
+              onChange={handleInputChange}
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+              required
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700">
+              Excerpt
+            </label>
+            <textarea
+              name="excerpt"
+              value={newBlog.excerpt}
+              onChange={handleInputChange}
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+              rows="3"
+              required
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700">
+              Image URL
+            </label>
+            <input
+              type="url"
+              name="imageUrl"
+              value={newBlog.imageUrl}
+              onChange={handleInputChange}
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+              required
+            />
+          </div>
+          <button
+            type="submit"
+            className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          >
+            Add New Blog
+          </button>
+        </form>
       </div>
-    </>
+      <div>
+        <div className="grid gap-6">
+          <BlogCard blogData={blogs} />
+        </div>
+      </div>
+    </div>
   );
 }
-
 export default Content;
