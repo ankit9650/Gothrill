@@ -2,9 +2,35 @@ import React, { useState, useEffect } from "react";
 import BlogCard from "./BlogCard";
 
 const initialBlogData = [
-  // Your initial blog data
-];
-
+    {
+      title: "Exploring the Majesty of the Himalayas: A Journey to Leh-Ladakh",
+      author: "Rohit",
+      date: "April 15, 2023",
+      excerpt: "Nestled in the northernmost region of India, Leh-Ladakh is a paradise for mountain lovers...",
+      imageUrl: "https://images.pexels.com/photos/3392154/pexels-photo-3392154.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    },
+    {
+      title: "The Mystical Charm of Himachal Pradesh: A Sojourn in Manali",
+      author: "Harsh",
+      date: "May 1, 2023",
+      excerpt: "Manali, a high-altitude Himalayan resort town in Himachal Pradesh, is a popular backpacking and honeymoon destination...",
+      imageUrl: "https://images.unsplash.com/photo-1590265788376-5d99eb11976e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      title: "Serenity and Spirituality in Uttarakhand: Rishikesh and Mussoorie",
+      author: "Ankit Prabhaker",
+      date: "June 1, 2023",
+      excerpt: "Uttarakhand, known as the 'Land of the Gods,' boasts spectacular mountain scenery and serene environments...",
+      imageUrl: "https://images.pexels.com/photos/20035462/pexels-photo-20035462/free-photo-of-elderly-woman-meditating-in-front-of-a-statue-of-parvati-on-the-ganges.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    },
+    {
+      title: "The Unexplored Beauty of the Northeast: Tawang, Arunachal Pradesh",
+      author: "Emily Davis",
+      date: "July 15, 2023",
+      excerpt: "Tawang, located in the northeastern state of Arunachal Pradesh, is a hidden gem waiting to be discovered...",
+      imageUrl: "https://images.unsplash.com/photo-1626761627604-f27d98885f4b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    }
+  ];
 function Content() {
   const [blogs, setBlogs] = useState([]);
   const [expandedBlogs, setExpandedBlogs] = useState({});
@@ -62,11 +88,11 @@ function Content() {
           <div className="grid gap-6">
             {blogs.map((blog, index) => (
               <div key={index} className="group" aria-label="Blog post">
-                <div className="aspect-w-3 aspect-h-2 overflow-hidden rounded-lg shadow-sm shadow-black">
+                <div className="w-3/4 overflow-hidden rounded-lg shadow-sm shadow-black">
                   <img
                     src={blog.imageUrl}
                     alt="Blog post image"
-                    className="object-cover transition-all group-hover:scale-105 w-3/4 h-full"
+                    className="object-cover transition-all group-hover:scale-105"
                   />
                 </div>
                 <div className="mt-4 space-y-2">
@@ -81,7 +107,7 @@ function Content() {
                       <span>{blog.date}</span>
                     </div>
                   </div>
-                  <p className={`text-muted-foreground overflow-hidden transition-all duration-300 ease-in-out ${expandedBlogs[index] ? 'max-h-[none]' : 'max-h-[3.6rem]'}`}>
+                  <p className={`text-muted-foreground overflow-hidden transition-all duration-300 ease-in-out ${expandedBlogs[index] ? 'max-h-none' : 'max-h-[3.6rem]'}`}>
                     {blog.excerpt}
                   </p>
                   <button
@@ -158,7 +184,7 @@ function Content() {
                     name="excerpt"
                     value={newBlog.excerpt}
                     onChange={handleInputChange}
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                    className="mt-1 text-justify block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                     rows="3"
                     required
                   />
