@@ -8,6 +8,7 @@
     theme: {
       extend: {
         keyframes: {
+                   
           slidein: {
             from: {
               opacity: "0",

@@ -2,7 +2,7 @@ import React from "react";
 
 function Header() {
   return (
-    <div className="relative w-auto bg-black shadow-lg shadow-black ">
+    <div className="relative w-auto bg-black shadow-lg rounded-lg shadow-black mx-3 my-2 border border-red-950 ">
       <div className="mx-auto max-w-7xl lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8">
         <div className="flex flex-col justify-center px-4 py-12 md:py-16 lg:col-span-7 lg:gap-x-6 lg:px-6 lg:py-24 xl:col-span-6">
           <svg
@@ -11,7 +11,7 @@ function Header() {
             viewBox="0 0 50 56"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-          ></svg>
+          ></svg> 
 
           <h1 className="mt-8 text-4xl font-extrabold  text-white md:text-4xl lg:text-4xl animate-slidein ... font-vlg ">
             Go thrill
