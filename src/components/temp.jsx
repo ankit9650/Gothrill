@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import BlogCard from "./BlogCard";
+
 
 const initialBlogData = [
     {
@@ -199,3 +198,18 @@ function Content() {
 }
 
 export default Content;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
