@@ -1,6 +1,10 @@
 import React from "react";
 
 function Header() {
+  
+    const handleScrollDown = () => {
+      window.scrollBy({ top: 400, behavior: 'smooth' });
+    };
   return (
     <div className="relative w-auto bg-black shadow-lg rounded-lg shadow-black mx-3 my-2 border border-WHITE-950 ">
       <div className="mx-auto max-w-7xl lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8">
@@ -11,7 +15,7 @@ function Header() {
             viewBox="0 0 50 56"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-          ></svg> 
+          ></svg>
 
           <h1 className="mt-8 text-4xl font-extrabold  text-white md:text-4xl lg:text-4xl animate-slidein ... font-vlg ">
             Go thrill
@@ -27,21 +31,35 @@ function Header() {
             from around the globe.
           </p>
 
-          <div className="mt-4 animate-slidein ...">
-            <button className="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800">
-              <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-                Checkout 
-              </span>
-            </button>
-          </div>
+          {/* down arrow */}
+          <br />
+          <button 
+      onClick={handleScrollDown} 
+      className="animate-bounce w-6 h-6 flex items-center justify-center"
+    >
+      <svg
+        className="w-6 h-6 text-gray-800 dark:text-white"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 10 14"
+        opacity={0.5}
+      >
+        <path
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
+          d="M5 1v12m0 0 4-4m-4 4L1 9"
+        />
+      </svg>
+    </button>
         </div>
         <div className="relative lg:col-span-5 lg:-mr-8 xl:col-span-6">
-          
           <img
             className="aspect-[3/2] object-cover lg:aspect-[4/3] lg:h-[700px] xl:aspect-[16/9] py-1 shadow-2xl opacity-95	"
             src="https://images.pexels.com/photos/2108845/pexels-photo-2108845.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
             alt=""
-            
           />
         </div>
       </div>
