@@ -6,9 +6,9 @@ function Login({ onLogin }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Perform login validation (this is just a basic example)
+    //  login validation
     if (username === "admin" && password === "password") {
-      onLogin(); // Call the onLogin function passed from the parent component
+      onLogin(); 
     } else {
       alert("Invalid credentials");
     }

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import BlogCard from "./BlogCard";
 
 function Content() {
-  const [blogs, setBlogs] = useState([]); // Start with an empty array
+  const [blogs, setBlogs] = useState([]);  //empty array
   const [expandedBlogs, setExpandedBlogs] = useState({});
   const [newBlog, setNewBlog] = useState({
     title: "",
