@@ -77,7 +77,7 @@ function SignIn({ onLogin }) {
                 <div>
                   <button
                     type="submit"
-                    className="inline-flex w-full items-center justify-center rounded-md bg-rose-300 px-3.5 py-2.5 font-semibold leading-7 text-black hover:bg-rose-400"
+                    className="inline-flex w-full items-center justify-center rounded-md bg-blue-300 px-3.5 py-2.5 font-semibold leading-7 text-black hover:bg-blue-400"
                   >
                     Get started <ArrowRight className="ml-2" size={16} />
                   </button>
