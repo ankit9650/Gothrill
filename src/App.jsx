@@ -4,6 +4,7 @@ import Footer from "./components/Footer";
 import Content from "./components/Content";
 import Login from "./components/Logincomponent";
 import "./App.css";
+import Navbar from "./components/Navbar";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -62,14 +63,19 @@ function App() {
     <>
       {isAuthenticated ? (
         <>
+        <Navbar />
           <Header />
+          <button
+              onClick={handleLogout}
+              className="block px-4 py-2 text-gray-700 hover:bg-gray-100 w-full text-left"
+            >
+              Logout
+            </button>
           <div className="flex-grow">
             <Content />
           </div>
           <Footer />
-          <button onClick={handleLogout} className="text-red-500">
-            Logout
-          </button>
+          
         </>
       ) : (
         <Login onLogin={handleLogin} />

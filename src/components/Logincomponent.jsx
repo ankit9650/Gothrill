@@ -122,8 +122,8 @@ function SignIn({ onLogin }) {
         </div>
         <div className="h-full w-full">
           <img
-            className="mr-auto h-full w-3/4 rounded-md object-cover"
-            src="https://images.pexels.com/photos/1735113/pexels-photo-1735113.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            className="mt-22 h-full w-8/12 shadow-md shadow-white rounded-md object-cover"
+            src="src\assets\login.png"
             alt=""
           />
         </div>
