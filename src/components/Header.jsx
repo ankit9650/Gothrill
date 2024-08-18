@@ -57,8 +57,8 @@ function Header() {
         </div>
         <div className="relative lg:col-span-5 lg:-mr-8 xl:col-span-6">
           <img
-            className="aspect-[3/2] object-cover lg:aspect-[4/3] lg:h-[700px] xl:aspect-[16/9] py-1 shadow-2xl opacity-95	"
-            src="https://images.pexels.com/photos/2108845/pexels-photo-2108845.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            className="aspect-[1/2] object-cover lg:aspect-[1/2] lg:h-[700px] xl:aspect-[1/2] py-1 shadow-2xl opacity-95	ml-44"
+            src="src\assets\Picture2.png"
             alt=""
           />
         </div>
