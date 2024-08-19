@@ -54,7 +54,7 @@ function Content() {
       setBlogs((prevState) => [...prevState, newBlog]);
     }
     setNewBlog({ title: "", author: "", date: "", excerpt: "", imageUrl: "" });
-    setIsModalOpen(false);
+    setIsModalOpen(false); 
   };
 
   const handleDelete = (index) => {
