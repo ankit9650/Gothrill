@@ -4,7 +4,6 @@ import Footer from "./components/Footer";
 import Content from "./components/Content";
 import Login from "./components/Logincomponent";
 import "./App.css";
-import Navbar from "./components/Navbar";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -53,29 +52,16 @@ function App() {
     localStorage.setItem("lastActivity", new Date().getTime().toString());
   };
 
-  const handleLogout = () => {
-    setIsAuthenticated(false);
-    localStorage.removeItem("isAuthenticated");
-    localStorage.removeItem("lastActivity");
-  };
-
   return (
     <>
       {isAuthenticated ? (
         <>
-        <Navbar />
-          <Header />
-          <button
-              onClick={handleLogout}
-              className="block px-4 py-2 text-gray-700 hover:bg-gray-100 w-full text-left"
-            >
-              Logout
-            </button>
+         <Header setIsAuthenticated={setIsAuthenticated} />
+
           <div className="flex-grow">
             <Content />
           </div>
           <Footer />
-          
         </>
       ) : (
         <Login onLogin={handleLogin} />
