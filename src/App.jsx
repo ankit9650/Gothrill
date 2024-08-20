@@ -1,9 +1,18 @@
+<<<<<<< HEAD
 import React, { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Content from "./components/Content";
 import Login from "./components/Logincomponent";
 import "./App.css";
+=======
+import { useState,useEffect } from 'react'
+import Header from './components/Header'
+import Footer from './components/Footer'
+import Content from './components/Content'
+import './App.css'
+import Toggle from './components/Account/Toggle/Toggle'
+>>>>>>> c09258b1156aaf8b7a89e2bb421b6612f7fb2fbd
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -64,7 +73,7 @@ function App() {
           <Footer />
         </>
       ) : (
-        <Login onLogin={handleLogin} />
+        <Toggle onLogin={handleLogin} />
       )}
     </>
   );
