@@ -2,8 +2,8 @@ import { useState,useEffect } from 'react'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import Content from './components/Content'
-import Login from './components/Logincomponent'
 import './App.css'
+import Toggle from './components/Account/Toggle/Toggle'
 
 function App() {
 
@@ -39,7 +39,7 @@ function App() {
           <button onClick={handleLogout} className="text-red-500">Logout</button>
         </>
       ) : (
-        <Login onLogin={handleLogin} />
+        <Toggle onLogin={handleLogin} />
       )}
 
     </>

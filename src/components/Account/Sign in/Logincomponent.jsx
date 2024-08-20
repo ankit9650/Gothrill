@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ArrowRight } from "lucide-react";
 
-function SignIn({ onLogin }) {
+function Login({ toggleform , onLogin }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -27,6 +27,7 @@ function SignIn({ onLogin }) {
                 href="#"
                 title=""
                 className="font-semibold text-white transition-all duration-200 hover:underline"
+                onClick={toggleform}
               >
                 Create a free account
               </a>
@@ -132,4 +133,4 @@ function SignIn({ onLogin }) {
   );
 }
 
-export default SignIn;
+export default Login;
