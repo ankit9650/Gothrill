@@ -5,6 +5,8 @@ import Footer from "./components/Footer";
 import Content from "./components/Content";
 import Logincomponent from "./components/Logincomponent";
 import "./App.css";
+import Toggle from "./components/Toggle";
+import Login from "./components/Logincomponent";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -68,7 +70,7 @@ function App() {
               <Footer />
             </>
           ) : (
-            <Logincomponent onLogin={handleLogin} />
+            <Toggle onLogin={handleLogin} />
           )}
         />
       </Routes>
