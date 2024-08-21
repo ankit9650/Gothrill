@@ -70,7 +70,8 @@ function App() {
               <Footer />
             </>
           ) : (
-            <Toggle onLogin={handleLogin} />
+            <Login onLogin={handleLogin}/>
+            //<Toggle onLogin={handleLogin} />
           )}
         />
       </Routes>
